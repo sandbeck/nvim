@@ -40,6 +40,13 @@ return {
           { name = "buffer" },
         }),
       })
+
+      -- Toggle completion and snippets on/off
+      local enabled_state = true
+      vim.keymap.set('n', '<leader>ls', function()
+        enabled_state = not enabled_state
+        cmp.setup.buffer { enabled = enabled_state }
+      end)
     end,
   },
 }
